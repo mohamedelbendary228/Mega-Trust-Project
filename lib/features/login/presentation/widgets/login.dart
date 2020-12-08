@@ -1,4 +1,9 @@
+import 'package:auth/core/common/widgets/main_button.dart';
+import 'package:auth/features/home/presentation/pages/home_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../cupertino_home_scaffold.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -6,13 +11,24 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,15 +43,15 @@ class _LoginState extends State<Login> {
           Row(
             children: [
               Expanded(
-                child: RaisedButton(
-                  padding: EdgeInsets.all(15),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  color: Theme.of(context).accentColor,
-
-                  onPressed: () {},
+                child: MainButton(
+                  text: 'Login',
+                  onTap: () {
+                    Navigator.of(context).push(
+                      CupertinoPageRoute(
+                        builder: (ctx) => BottomNavBar(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -47,36 +63,35 @@ class _LoginState extends State<Login> {
 
   Widget emailTextField() {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(5),
-        border: Border.all(width: 1, color: Colors.black),
       ),
       child: TextField(
-        controller: emailController,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(),
-        onChanged: (value) {
-          emailController.text = value;
-        },
+        controller: _emailController,
+        focusNode: _passwordFocusNode,
+        decoration: InputDecoration(border: InputBorder.none),
+        textInputAction: TextInputAction.next,
+        onChanged: (email) => _updateState(),
       ),
     );
   }
 
   Widget passwordTextField() {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(5),
-        border: Border.all(width: 1, color: Colors.black),
       ),
       child: TextField(
-        controller: passwordController,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(),
-        onChanged: (value) {
-          passwordController.text = value;
-        },
+        controller: _passwordController,
+        textInputAction: TextInputAction.done,
+        obscureText: true,
+        decoration: InputDecoration(
+            suffixIcon: Icon(Icons.remove_red_eye), border: InputBorder.none),
+        onChanged: (password) => _updateState(),
       ),
     );
   }
@@ -86,8 +101,12 @@ class _LoginState extends State<Login> {
       text,
       style: TextStyle(
         color: Colors.grey[600],
-        fontSize: 18,
+        fontSize: 16,
       ),
     );
+  }
+
+  void _updateState() {
+    setState(() {});
   }
 }
