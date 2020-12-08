@@ -14,7 +14,7 @@ class ProposalPage extends StatelessWidget {
               jobName: 'Sr, Ui Designer',
               jobType: 'Google, Full Time',
               jobStatus: 'Closed',
-              isProposal: true,
+              isProposal: true, 
             ),
           ),
         ),

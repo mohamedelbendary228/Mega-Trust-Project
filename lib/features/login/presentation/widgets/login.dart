@@ -1,5 +1,4 @@
 import 'package:auth/core/common/widgets/main_button.dart';
-import 'package:auth/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,34 +28,31 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildText('Email'),
-          SizedBox(height: 10),
-          emailTextField(),
-          SizedBox(height: 15),
-          buildText('Password'),
-          SizedBox(height: 10),
-          passwordTextField(),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Expanded(
-                child: MainButton(
-                  text: 'Login',
-                  onTap: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute(
-                        builder: (ctx) => BottomNavBar(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          )
-        ],
+      child: Container(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildText('Email'),
+            SizedBox(height: 10),
+            emailTextField(),
+            SizedBox(height: 15),
+            buildText('Password'),
+            SizedBox(height: 10),
+            passwordTextField(),
+            SizedBox(height: 20),
+            MainButton(
+              text: 'Login',
+              onTap: () {
+                Navigator.of(context).push(
+                  CupertinoPageRoute(
+                    builder: (ctx) => BottomNavBar(),
+                  ),
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }
