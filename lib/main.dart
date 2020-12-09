@@ -1,4 +1,3 @@
-import 'package:auth/features/home/presentation/provider/latest_jobs_provider.dart';
 import 'package:auth/features/login/presentation/pages/login_page.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -35,30 +35,30 @@ class JobInfoCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BuildText(
+        BuildCustomWidgetForTexts(
           text: text1,//'Job Category',
-          color: titleTextColor,
+          color: mainTextsColor,
           fontSize: 14,
           fontWeight: FontWeight.w600,
         ),
         SizedBox(height: 5),
-        BuildText(
+        BuildCustomWidgetForTexts(
           text: text2,//'IT / Sofrware',
-          color: titleTextColor,
+          color: mainTextsColor,
           fontSize: 14,
           fontWeight: FontWeight.normal,
         ),
         SizedBox(height: 10),
-        BuildText(
+        BuildCustomWidgetForTexts(
           text: text3,//'Job Type',
-          color: titleTextColor,
+          color: mainTextsColor,
           fontSize: 14,
           fontWeight: FontWeight.w600,
         ),
         SizedBox(height: 5),
-        BuildText(
+        BuildCustomWidgetForTexts(
           text: text4,//'Full Time',
-          color: titleTextColor,
+          color: mainTextsColor,
           fontSize: 14,
           fontWeight: FontWeight.normal,
         ),

@@ -1,6 +1,10 @@
 // import 'package:auth/features/home/data/models/latest_jobs_model.dart';
 // import 'package:flutter/material.dart';
 
+List list = [
+  
+];
+
 // class LatestJobsProvider with ChangeNotifier {
 //   List<LatestJobsModel> _latestJobs = [
 //     LatestJobsModel(

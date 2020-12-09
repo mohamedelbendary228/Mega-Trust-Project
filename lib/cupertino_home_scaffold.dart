@@ -2,7 +2,7 @@ import 'package:auth/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'core/common/ui/build_text.dart';
+import 'core/common/ui/build_custom_widget_for_text.dart';
 import 'core/common/ui/tab_items.dart';
 import 'features/companies/presentation/pages/companies_page.dart';
 import 'features/profile/presentation/pages/profile_page.dart';
@@ -59,7 +59,7 @@ class CupertinoHomeScaffold extends StatelessWidget {
         color: color,
         size: 35,
       ),
-      title: BuildText(
+      title: BuildCustomWidgetForTexts(
         text: itemData.title,
         color: color,
         fontSize: 15,

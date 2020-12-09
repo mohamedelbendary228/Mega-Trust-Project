@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
@@ -21,7 +21,7 @@ class MainButton extends StatelessWidget {
             10,
           ),
         ),
-        child: BuildText(
+        child: BuildCustomWidgetForTexts(
           text: text,
           color: Colors.white,
           fontSize: 16,

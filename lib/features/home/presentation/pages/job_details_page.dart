@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/core/common/ui/main_button.dart';
 import 'package:auth/features/home/presentation/widgets/job_details_widgets/job_info_card.dart';
 import 'package:auth/features/home/presentation/widgets/job_details_widgets/logo_and_title.dart';
@@ -60,14 +60,14 @@ class JobDetailsPage extends StatelessWidget {
 
   List<Widget> buildDescriptionSection() {
     return [
-      BuildText(
+      BuildCustomWidgetForTexts(
         text: 'Job Description',
-        color: titleTextColor,
+        color: mainTextsColor,
         fontSize: 14,
         fontWeight: FontWeight.w600,
       ),
       SizedBox(height: 10),
-      BuildText(
+      BuildCustomWidgetForTexts(
         text:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         color: subTitleTextColor,
@@ -78,9 +78,9 @@ class JobDetailsPage extends StatelessWidget {
   }
 
   Widget buildTitleOfScectionText(String text) {
-    return BuildText(
+    return BuildCustomWidgetForTexts(
       text: text,
-      color: titleTextColor,
+      color: mainTextsColor,
       fontSize: 14,
       fontWeight: FontWeight.w600,
     );
@@ -96,7 +96,7 @@ class JobDetailsPage extends StatelessWidget {
             backgroundColor: Theme.of(context).primaryColor,
             radius: 8,
           ),
-          title: BuildText(
+          title: BuildCustomWidgetForTexts(
             text: 'Lorem Ipsum is simply dummy and typesetting industry',
             color: subTitleTextColor,
             fontSize: 14,

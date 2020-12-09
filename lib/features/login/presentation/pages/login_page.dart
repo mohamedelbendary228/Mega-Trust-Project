@@ -1,7 +1,8 @@
-import 'package:auth/core/common/ui/top_half_widget.dart';
-import 'package:auth/features/login/presentation/widgets/login.dart';
+import 'package:auth/core/common/ui/top_half_widget_in_login_and_home_pages.dart';
+import 'package:auth/features/login/presentation/widgets/bottom_half_login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../utilities/colors/app_colors.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -16,41 +17,41 @@ class LoginPage extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            TopHalfWidget(
-              text1: buildText1(),
-              text2: buildText2(),
+            TopHalfWidgetInLoginAndHomePages(
+              getStartedText: buildGetStartedText(),
+              descriptionText: buildDescriptionText(),
             ),
             SizedBox(height: 25),
-            Login(),
+            BottomHalfLoginPage(),
           ],
         ),
       ),
     );
   }
 
-  Widget buildText1() {
+  Widget buildGetStartedText() {
     return Text(
       'Get Started',
-      style: GoogleFonts.lato(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 23,
-          fontWeight: FontWeight.w700,
-          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          color: topHalfTextColorWidgetInLoginAndHome,
         ),
       ),
     );
   }
 
-  Widget buildText2() {
+  Widget buildDescriptionText() {
     return Text(
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-      style: GoogleFonts.lato(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 15,
-          color: Colors.white,
+          fontSize: 14,
+          color: topHalfTextColorWidgetInLoginAndHome,
         ),
       ),
-      maxLines: 2,
+      maxLines:3,
       overflow: TextOverflow.ellipsis,
     );
   }

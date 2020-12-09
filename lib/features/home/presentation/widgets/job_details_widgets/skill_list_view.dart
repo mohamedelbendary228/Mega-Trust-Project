@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +19,9 @@ class SkillsListView extends StatelessWidget {
               color: Theme.of(context).accentColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: BuildText(
+            child: BuildCustomWidgetForTexts(
               text: 'Lorem Ipsum',
-              color: titleTextColor,
+              color: mainTextsColor,
               fontSize: 14,
               fontWeight: FontWeight.normal,
             ),

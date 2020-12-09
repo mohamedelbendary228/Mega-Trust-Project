@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -31,16 +31,16 @@ class LogoAndTitle extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BuildText(
+            BuildCustomWidgetForTexts(
               text: jobName,//'Ui / Ux Designer',
-              color: titleTextColor,
+              color: mainTextsColor,
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
             SizedBox(height: 7),
-            BuildText(
+            BuildCustomWidgetForTexts(
               text: companyName,//'Mega Trust',
-              color: titleTextColor,
+              color: mainTextsColor,
               fontSize: 16,
               fontWeight: FontWeight.normal,
             ),

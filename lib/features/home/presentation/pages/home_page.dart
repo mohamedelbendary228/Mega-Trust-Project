@@ -1,6 +1,6 @@
 
-import 'package:auth/core/common/ui/build_text.dart';
-import 'package:auth/core/common/ui/top_half_widget.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
+import 'package:auth/core/common/ui/top_half_widget_in_login_and_home_pages.dart';
 import 'package:auth/features/home/presentation/widgets/featured_companies_list.dart';
 import 'package:auth/features/home/presentation/widgets/latest_job_listView.dart';
 import 'package:auth/features/home/presentation/widgets/search_widget.dart';
@@ -22,14 +22,14 @@ class HomePage extends StatelessWidget {
         children: [
           Stack(
             children: [
-              TopHalfWidget(
-                text1: BuildText(
+              TopHalfWidgetInLoginAndHomePages(
+                getStartedText: BuildCustomWidgetForTexts(
                   text: 'Search For',
                   color: Colors.white,
                   fontWeight: FontWeight.normal,
                   fontSize: 21,
                 ),
-                text2: BuildText(
+                descriptionText: BuildCustomWidgetForTexts(
                   text: 'Your Dream Job',
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -58,9 +58,9 @@ class HomePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          BuildText(
+          BuildCustomWidgetForTexts(
             text: 'Featured Companies',
-            color: titleTextColor,
+            color: mainTextsColor,
             fontWeight: FontWeight.w600,
             fontSize: 21,
           ),
@@ -76,9 +76,9 @@ class HomePage extends StatelessWidget {
   Widget buildLatesJobsTitle() {
     return Padding(
       padding: const EdgeInsets.only(left: 20),
-      child: BuildText(
+      child: BuildCustomWidgetForTexts(
         text: 'Latest Jobs',
-        color: titleTextColor,
+        color: mainTextsColor,
         fontWeight: FontWeight.w600,
         fontSize: 22,
       ),

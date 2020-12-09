@@ -1,3 +1,4 @@
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/core/common/ui/main_button.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,12 +6,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../cupertino_home_scaffold.dart';
 
-class Login extends StatefulWidget {
+class BottomHalfLoginPage extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _BottomHalfLoginPageState createState() => _BottomHalfLoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _BottomHalfLoginPageState extends State<BottomHalfLoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode _emailFocusNode = FocusNode();
@@ -34,11 +35,11 @@ class _LoginState extends State<Login> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildText('Email'),
+            buildEmailAndPasswordText('Email'),
             SizedBox(height: 10),
             emailTextField(),
             SizedBox(height: 15),
-            buildText('Password'),
+            buildEmailAndPasswordText('Password'),
             SizedBox(height: 10),
             passwordTextField(),
             SizedBox(height: 20),
@@ -93,13 +94,12 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget buildText(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: Colors.grey[600],
-        fontSize: 16,
-      ),
+  Widget buildEmailAndPasswordText(String text) {
+    return BuildCustomWidgetForTexts(
+      text: text,
+      color: mainTextsColor,
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
     );
   }
 

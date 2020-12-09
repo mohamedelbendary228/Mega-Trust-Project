@@ -1,4 +1,4 @@
-import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/features/home/presentation/pages/job_details_page.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -70,14 +70,14 @@ class JobCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BuildText(
+                BuildCustomWidgetForTexts(
                   text: jobType,
                   color: Colors.black,
                   fontSize: 13,
                   fontWeight: FontWeight.normal,
                 ),
                 SizedBox(height: 5),
-                BuildText(
+                BuildCustomWidgetForTexts(
                   text: jobName,
                   color: Colors.black,
                   fontSize: 14,
@@ -106,7 +106,7 @@ class JobCard extends StatelessWidget {
                 Icons.location_pin,
                 color: Theme.of(context).primaryColor,
               ),
-              BuildText(
+              BuildCustomWidgetForTexts(
                 text: 'Location Here',
                 color: subTitleTextColor,
                 fontSize: 15,

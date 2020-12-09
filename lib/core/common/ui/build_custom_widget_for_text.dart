@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BuildText extends StatelessWidget {
+class BuildCustomWidgetForTexts extends StatelessWidget {
   final String text;
   final Color color;
   final double fontSize;
   final FontWeight fontWeight;
 
-  BuildText({
+  BuildCustomWidgetForTexts({
     Key key,
     this.text,
     this.color,

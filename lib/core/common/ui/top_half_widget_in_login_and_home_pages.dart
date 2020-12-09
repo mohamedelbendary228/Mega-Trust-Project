@@ -1,13 +1,14 @@
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class TopHalfWidget extends StatelessWidget {
-  final Widget text1;
-  final Widget text2;
+class TopHalfWidgetInLoginAndHomePages extends StatelessWidget {
+  final Widget getStartedText;
+  final Widget descriptionText;
 
-  TopHalfWidget({
-    @required this.text1,
-    @required this.text2,
+  TopHalfWidgetInLoginAndHomePages({
+    @required this.getStartedText,
+    @required this.descriptionText,
   });
 
   @override
@@ -17,7 +18,7 @@ class TopHalfWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 3,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: topHalfBackgroundColor,
+        color: topHalfBackgroundColorWidgetInLoginAndHome,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -25,14 +26,15 @@ class TopHalfWidget extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Expanded(
+              Container(
+                width: MediaQuery.of(context).size.width / 1.7,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    text1,
+                    getStartedText,
                     SizedBox(height: 5),
-                    text2,
+                    descriptionText,
                     SizedBox(
                       height: 50,
                     ),
@@ -40,14 +42,11 @@ class TopHalfWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
-                // Here the svg image
                 child: Container(
-                  // decoration: BoxDecoration(
-                  //     border: Border.all(width: 1, color: Colors.white)),
-                  width: 40,
-                  height: 120,
+                  
+                  //child: Image.asset('assets/images/man logo.png', height: 200,)
+                  ),
                 ),
-              ),
             ],
           ),
         ],
