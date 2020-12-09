@@ -1,4 +1,4 @@
-import 'package:auth/core/common/widgets/top_half_widget.dart';
+import 'package:auth/core/common/ui/top_half_widget.dart';
 import 'package:auth/features/login/presentation/widgets/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
               text1: buildText1(),
               text2: buildText2(),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 25),
             Login(),
           ],
         ),
@@ -33,7 +33,10 @@ class LoginPage extends StatelessWidget {
       'Get Started',
       style: GoogleFonts.lato(
         textStyle: TextStyle(
-            fontSize: 23, fontWeight: FontWeight.w700, color: Colors.white),
+          fontSize: 23,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+        ),
       ),
     );
   }

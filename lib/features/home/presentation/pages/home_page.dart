@@ -1,8 +1,10 @@
-import 'package:auth/core/common/widgets/build_text.dart';
-import 'package:auth/core/common/widgets/top_half_widget.dart';
+
+import 'package:auth/core/common/ui/build_text.dart';
+import 'package:auth/core/common/ui/top_half_widget.dart';
 import 'package:auth/features/home/presentation/widgets/featured_companies_list.dart';
 import 'package:auth/features/home/presentation/widgets/latest_job_listView.dart';
 import 'package:auth/features/home/presentation/widgets/search_widget.dart';
+import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,15 +44,7 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 10),
           FeaturedCompaniesList(),
           SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: BuildText(
-              text: 'Latest Jobs',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.w600,
-              fontSize: 22,
-            ),
-          ),
+          buildLatesJobsTitle(),
           SizedBox(height: 10),
           LatestJobListView(),
         ],
@@ -66,12 +60,27 @@ class HomePage extends StatelessWidget {
         children: [
           BuildText(
             text: 'Featured Companies',
-            color: Colors.grey[600],
+            color: titleTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 21,
           ),
-          Icon(Icons.chevron_right, color: Theme.of(context).primaryColor),
+          Icon(
+            Icons.chevron_right,
+            color: Theme.of(context).primaryColor,
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget buildLatesJobsTitle() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: BuildText(
+        text: 'Latest Jobs',
+        color: titleTextColor,
+        fontWeight: FontWeight.w600,
+        fontSize: 22,
       ),
     );
   }

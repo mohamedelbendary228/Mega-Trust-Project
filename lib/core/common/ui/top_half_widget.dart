@@ -1,5 +1,5 @@
+import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TopHalfWidget extends StatelessWidget {
   final Widget text1;
@@ -17,7 +17,7 @@ class TopHalfWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 3,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.indigo[900],
+        color: topHalfBackgroundColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

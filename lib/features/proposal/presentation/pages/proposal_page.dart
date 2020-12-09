@@ -1,4 +1,4 @@
-import 'package:auth/core/common/widgets/job_card.dart';
+import 'package:auth/core/common/ui/job_card.dart';
 import 'package:flutter/material.dart';
 
 class ProposalPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class ProposalPage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 70, left: 25, right: 25),
         child: Container(
           child: ListView.builder(
-            itemCount: 2,
+            itemCount: 3,
             itemBuilder: (context, index) => JobCard(
               jobName: 'Sr, Ui Designer',
               jobType: 'Google, Full Time',

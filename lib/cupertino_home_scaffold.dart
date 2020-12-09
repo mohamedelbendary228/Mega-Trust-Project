@@ -1,9 +1,9 @@
-import 'package:auth/core/common/widgets/build_text.dart';
 import 'package:auth/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'core/common/widgets/tab_items.dart';
+import 'core/common/ui/build_text.dart';
+import 'core/common/ui/tab_items.dart';
 import 'features/companies/presentation/pages/companies_page.dart';
 import 'features/profile/presentation/pages/profile_page.dart';
 import 'features/proposal/presentation/pages/proposal_page.dart';

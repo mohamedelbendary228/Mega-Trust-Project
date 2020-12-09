@@ -19,7 +19,7 @@ class BuildText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.lato(
+      style: GoogleFonts.poppins(
         textStyle:
             TextStyle(fontSize: fontSize, color: color, fontWeight: fontWeight),
       ),

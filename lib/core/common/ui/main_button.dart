@@ -1,3 +1,4 @@
+import 'package:auth/core/common/ui/build_text.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
@@ -20,13 +21,12 @@ class MainButton extends StatelessWidget {
             10,
           ),
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 17,
-          ),
-        ),
+        child: BuildText(
+          text: text,
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+        )
       ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:auth/core/common/widgets/job_card.dart';
+import 'package:auth/core/common/ui/job_card.dart';
 import 'package:flutter/material.dart';
 
 class LatestJobListView extends StatelessWidget {

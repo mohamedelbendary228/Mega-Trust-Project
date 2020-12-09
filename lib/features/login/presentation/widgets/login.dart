@@ -1,4 +1,5 @@
-import 'package:auth/core/common/widgets/main_button.dart';
+import 'package:auth/core/common/ui/main_button.dart';
+import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +62,7 @@ class _LoginState extends State<Login> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: lightAccentColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(
@@ -78,7 +79,7 @@ class _LoginState extends State<Login> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: lightAccentColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(
