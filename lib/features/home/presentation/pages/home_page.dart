@@ -1,6 +1,7 @@
-
 import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
+import 'package:auth/core/common/ui/job_card.dart';
 import 'package:auth/core/common/ui/top_half_widget_in_login_and_home_pages.dart';
+import 'package:auth/features/home/data/models/latest_jobs_model.dart';
 import 'package:auth/features/home/presentation/widgets/featured_companies_list.dart';
 import 'package:auth/features/home/presentation/widgets/latest_job_listView.dart';
 import 'package:auth/features/home/presentation/widgets/search_widget.dart';
@@ -25,15 +26,15 @@ class HomePage extends StatelessWidget {
               TopHalfWidgetInLoginAndHomePages(
                 getStartedText: BuildCustomWidgetForTexts(
                   text: 'Search For',
-                  color: Colors.white,
+                  color: topHalfTextColorWidgetInLoginAndHome,
                   fontWeight: FontWeight.normal,
-                  fontSize: 21,
+                  fontSize: 24,
                 ),
                 descriptionText: BuildCustomWidgetForTexts(
                   text: 'Your Dream Job',
-                  color: Colors.white,
+                  color: topHalfTextColorWidgetInLoginAndHome,
                   fontWeight: FontWeight.bold,
-                  fontSize: 25,
+                  fontSize: 24,
                 ),
               ),
               SearchWidget(),
@@ -44,9 +45,10 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 10),
           FeaturedCompaniesList(),
           SizedBox(height: 30),
-          buildLatesJobsTitle(),
+          buildLatestJobsTitle(),
           SizedBox(height: 10),
-          LatestJobListView(),
+          LatestJobList(),
+          SizedBox(height: 70),
         ],
       ),
     );
@@ -62,7 +64,7 @@ class HomePage extends StatelessWidget {
             text: 'Featured Companies',
             color: mainTextsColor,
             fontWeight: FontWeight.w600,
-            fontSize: 21,
+            fontSize: 20,
           ),
           Icon(
             Icons.chevron_right,
@@ -73,14 +75,14 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildLatesJobsTitle() {
+  Widget buildLatestJobsTitle() {
     return Padding(
       padding: const EdgeInsets.only(left: 20),
       child: BuildCustomWidgetForTexts(
         text: 'Latest Jobs',
         color: mainTextsColor,
         fontWeight: FontWeight.w600,
-        fontSize: 22,
+        fontSize: 20,
       ),
     );
   }

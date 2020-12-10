@@ -1,18 +1,23 @@
 import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/features/home/presentation/pages/job_details_page.dart';
-import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'location_here_widget.dart';
+
 class JobCard extends StatelessWidget {
+  final String jobId;
   final String jobType;
   final String jobName;
   final String jobStatus;
+  final String image;
   final bool isProposal;
 
   const JobCard({
+    @required this.jobId,
     @required this.jobType,
     @required this.jobName,
+    @required this.image,
     this.jobStatus,
     this.isProposal = false,
   });
@@ -21,11 +26,8 @@ class JobCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context, rootNavigator: true).push(
-          CupertinoPageRoute(
-            builder: (ctx) => JobDetailsPage(),
-          ),
-        );
+        Navigator.of(context, rootNavigator: true)
+            .pushNamed(JobDetailsPage.routeName, arguments: jobId);
       },
       child: Stack(
         children: [
@@ -43,7 +45,16 @@ class JobCard extends StatelessWidget {
             ),
           ),
           if (isProposal) jobStatusContainer(context),
-          locationHere(context),
+          Positioned(
+              bottom: 25,
+              right: 15,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  LocationHere(),
+                ],
+              )),
         ],
       ),
     );
@@ -61,10 +72,11 @@ class JobCard extends StatelessWidget {
               height: 45,
               width: 45,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(width: 1, color: Colors.black),
-                  color: Colors.white,),
-              //child: Here should be SVG Image for the company's logo,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(image)),
             ),
             SizedBox(width: 10),
             Column(
@@ -88,34 +100,6 @@ class JobCard extends StatelessWidget {
           ],
         )
       ],
-    );
-  }
-
-  Widget locationHere(BuildContext context) {
-    return Positioned(
-      bottom: 25,
-      right: 15,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Icon(
-                Icons.location_pin,
-                color: Theme.of(context).primaryColor,
-              ),
-              BuildCustomWidgetForTexts(
-                text: 'Location Here',
-                color: subTitleTextColor,
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-              )
-            ],
-          )
-        ],
-      ),
     );
   }
 

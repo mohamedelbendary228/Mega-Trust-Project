@@ -1,13 +1,16 @@
 import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
 import 'package:auth/core/common/ui/main_button.dart';
+import 'package:auth/features/home/presentation/widgets/job_details_widgets/job_bottom_sheet.dart';
 import 'package:auth/features/home/presentation/widgets/job_details_widgets/job_info_card.dart';
 import 'package:auth/features/home/presentation/widgets/job_details_widgets/logo_and_title.dart';
-import 'package:auth/features/home/presentation/widgets/job_details_widgets/share_and_back_top_row.dart';
+import 'package:auth/core/common/ui/share_and_back_top_row_in_details_pages.dart';
 import 'package:auth/features/home/presentation/widgets/job_details_widgets/skill_list_view.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class JobDetailsPage extends StatelessWidget {
+  static const routeName = '/job-details';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +19,8 @@ class JobDetailsPage extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
+    final jobId = ModalRoute.of(context).settings.arguments as String;
+    //final latestJob = latestJobs.firstWhere((job) => job.jodId == jobId);
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.only(
@@ -33,24 +38,25 @@ class JobDetailsPage extends StatelessWidget {
               },
               onPressedShare: () {},
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             LogoAndTitle(
               jobName: 'Ui / Ux Designer',
               companyName: 'Mega Trust',
+              image: 'assets/images/mega trust.png',
             ),
             SizedBox(height: 40),
             ...buildDescriptionSection(),
             SizedBox(height: 30),
-            buildTitleOfScectionText('Skills'),
+            buildTitleOfSectionText('Skills'),
             SizedBox(height: 10),
             SkillsListView(),
             SizedBox(height: 20),
-            buildTitleOfScectionText('Benefits'),
-            buildBenefitsListView(context),
+            buildTitleOfSectionText('Benefits'),
+            ...buildBenefits(context),
             SizedBox(height: 10),
             JobInfoCard(),
             SizedBox(height: 20),
-            MainButton(text: 'Apply Now', onTap: () {}),
+            MainButton(text: 'Apply Now', onTap: () => applyNow(context)),
             SizedBox(height: 50),
           ],
         ),
@@ -77,7 +83,7 @@ class JobDetailsPage extends StatelessWidget {
     ];
   }
 
-  Widget buildTitleOfScectionText(String text) {
+  Widget buildTitleOfSectionText(String text) {
     return BuildCustomWidgetForTexts(
       text: text,
       color: mainTextsColor,
@@ -86,24 +92,36 @@ class JobDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget buildBenefitsListView(BuildContext context) {
-    return Container(
-      height: 70,
-      child: ListView.builder(
-        itemCount: 4,
-        itemBuilder: (ctx, index) => ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Theme.of(context).primaryColor,
-            radius: 8,
-          ),
-          title: BuildCustomWidgetForTexts(
-            text: 'Lorem Ipsum is simply dummy and typesetting industry',
-            color: subTitleTextColor,
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
+  List<Widget> buildBenefits(BuildContext context) {
+    return [
+      ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Theme.of(context).primaryColor,
+          radius: 8,
+        ),
+        title: BuildCustomWidgetForTexts(
+          text: 'Lorem Ipsum is simply dummy and typesetting industry',
+          color: subTitleTextColor,
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
         ),
       ),
-    );
+      ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Theme.of(context).primaryColor,
+          radius: 8,
+        ),
+        title: BuildCustomWidgetForTexts(
+          text: 'Lorem Ipsum is simply dummy and typesetting industry',
+          color: subTitleTextColor,
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
+    ];
+  }
+
+  void applyNow(BuildContext ctx) {
+    showModalBottomSheet(context: ctx, builder: (bCtx) => JobBottomSheet());
   }
 }

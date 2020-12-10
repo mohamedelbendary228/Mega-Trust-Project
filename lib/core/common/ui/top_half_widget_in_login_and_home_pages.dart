@@ -33,7 +33,6 @@ class TopHalfWidgetInLoginAndHomePages extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     getStartedText,
-                    SizedBox(height: 5),
                     descriptionText,
                     SizedBox(
                       height: 50,

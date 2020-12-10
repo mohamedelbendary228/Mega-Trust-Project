@@ -63,7 +63,7 @@ class _BottomHalfLoginPageState extends State<BottomHalfLoginPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: lightAccentColor,
+        color: backgroundCardsColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(
@@ -80,7 +80,7 @@ class _BottomHalfLoginPageState extends State<BottomHalfLoginPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: lightAccentColor,
+        color: backgroundCardsColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(

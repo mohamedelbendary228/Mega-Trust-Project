@@ -1,3 +1,4 @@
+import 'package:auth/features/home/data/models/featured_companies_list_model.dart';
 import 'package:auth/features/home/presentation/widgets/companies_items_list.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +9,16 @@ class FeaturedCompaniesList extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10),
       width: double.infinity,
       height: 90,
-      child: ListView.builder(
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (ctx, index) => CompaniesItemsList(),
+        children: FEATURED_COMPANIES
+            .map(
+              (featured) => CompaniesItemsList(
+                id: featured.companyId,
+                image: featured.companyImage,
+              ),
+            )
+            .toList(),
       ),
     );
   }

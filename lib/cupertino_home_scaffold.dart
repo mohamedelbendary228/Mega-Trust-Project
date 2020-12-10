@@ -1,13 +1,31 @@
 import 'package:auth/features/home/presentation/pages/home_page.dart';
+import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'core/common/ui/build_custom_widget_for_text.dart';
-import 'core/common/ui/tab_items.dart';
 import 'features/companies/presentation/pages/companies_page.dart';
 import 'features/profile/presentation/pages/profile_page.dart';
 import 'features/proposal/presentation/pages/proposal_page.dart';
 
+enum TabItem { home, proposal, companies, profile }
+
+class TabItemData {
+  final String title;
+  final String icon;
+
+  const TabItemData({@required this.title, @required this.icon});
+
+  static const Map<TabItem, TabItemData> allTabs = {
+    TabItem.home: TabItemData(title: 'Home', icon: 'assets/images/home.png'),
+    TabItem.proposal:
+        TabItemData(title: 'Proposal', icon: 'assets/images/proposal.png'),
+    TabItem.companies:
+        TabItemData(title: 'Companies', icon: 'assets/images/compaines.png'),
+    TabItem.profile:
+        TabItemData(title: 'Profile', icon: 'assets/images/profile.png'),
+  };
+}
 
 class CupertinoHomeScaffold extends StatelessWidget {
   final TabItem currentTab;
@@ -20,7 +38,7 @@ class CupertinoHomeScaffold extends StatelessWidget {
     @required this.navigatorKeys,
   });
 
-  Map<TabItem, WidgetBuilder> get widgetBuilders{
+  Map<TabItem, WidgetBuilder> get widgetBuilders {
     return {
       TabItem.home: (_) => HomePage(),
       TabItem.proposal: (_) => ProposalPage(),
@@ -28,19 +46,20 @@ class CupertinoHomeScaffold extends StatelessWidget {
       TabItem.profile: (_) => ProfilePage(),
     };
   }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
-          _buildItem(TabItem.home),
-          _buildItem(TabItem.proposal),
-          _buildItem(TabItem.companies),
-          _buildItem(TabItem.profile),
+          _buildItem(TabItem.home, context),
+          _buildItem(TabItem.proposal, context),
+          _buildItem(TabItem.companies, context),
+          _buildItem(TabItem.profile, context),
         ],
         onTap: (index) => onSelectTab(TabItem.values[index]),
       ),
-      tabBuilder: (context, index){
+      tabBuilder: (context, index) {
         final item = TabItem.values[index];
         return CupertinoTabView(
           navigatorKey: navigatorKeys[item],
@@ -50,26 +69,23 @@ class CupertinoHomeScaffold extends StatelessWidget {
     );
   }
 
-  BottomNavigationBarItem _buildItem(TabItem tabItem) {
+  BottomNavigationBarItem _buildItem(TabItem tabItem, BuildContext context) {
     final itemData = TabItemData.allTabs[tabItem];
-    final color = currentTab == tabItem ? Colors.amber[800] : Colors.grey[300];
+    final color =
+        currentTab == tabItem ? Theme.of(context).primaryColor : mainTextsColor;
     return BottomNavigationBarItem(
-      icon: Icon(
-        itemData.icon,
-        color: color,
-        size: 35,
-      ),
-      title: BuildCustomWidgetForTexts(
-        text: itemData.title,
-        color: color,
-        fontSize: 15,
-        fontWeight: FontWeight.w600,
-      )
-    );
+        icon: Image.asset(
+          itemData.icon,
+          color: color,
+        ),
+        title: BuildCustomWidgetForTexts(
+          text: itemData.title,
+          color: color,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ));
   }
 }
-
-
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -84,19 +100,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
     TabItem.proposal: GlobalKey<NavigatorState>(),
     TabItem.companies: GlobalKey<NavigatorState>(),
     TabItem.profile: GlobalKey<NavigatorState>(),
-
   };
+
   _select(TabItem tabItem) {
-    if(tabItem == _currentTab){
+    if (tabItem == _currentTab) {
       navigatorKeys[tabItem].currentState.popUntil((route) => route.isFirst);
     } else {
       setState(() => _currentTab = tabItem);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => !await navigatorKeys[_currentTab].currentState.maybePop(),
+      onWillPop: () async =>
+          !await navigatorKeys[_currentTab].currentState.maybePop(),
       child: CupertinoHomeScaffold(
         currentTab: _currentTab,
         onSelectTab: _select,
@@ -104,7 +122,4 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
-
-
 }
-

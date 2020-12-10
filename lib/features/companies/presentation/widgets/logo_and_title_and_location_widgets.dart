@@ -1,17 +1,17 @@
 import 'package:auth/core/common/ui/build_custom_widget_for_text.dart';
+import 'package:auth/core/common/ui/location_here_widget.dart';
 import 'package:auth/utilities/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class LogoAndTitle extends StatelessWidget {
-  final String jobName;
+class LogoAndTitleAndLocation extends StatelessWidget {
   final String companyName;
   final String image;
 
-  const LogoAndTitle({
-    @required this.jobName,
+  const LogoAndTitleAndLocation({
     @required this.companyName,
     @required this.image,
   });
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -26,23 +26,19 @@ class LogoAndTitle extends StatelessWidget {
               borderRadius: BorderRadius.circular(1),
               child: Image.asset(image)),
         ),
-        SizedBox(width: 15),
+        SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 8),
             BuildCustomWidgetForTexts(
-              text: jobName,//'Ui / Ux Designer',
-              color: mainTextsColor,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
-            SizedBox(height: 7),
-            BuildCustomWidgetForTexts(
-              text: companyName,//'Mega Trust',
+              text: companyName, //'Mega Trust',
               color: mainTextsColor,
               fontSize: 16,
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.w600,
             ),
+            SizedBox(height: 8),
+            LocationHere(),
           ],
         ),
       ],

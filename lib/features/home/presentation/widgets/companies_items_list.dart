@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CompaniesItemsList extends StatelessWidget {
+  final String image;
+  final String id;
+
+  CompaniesItemsList({
+    @required this.id,
+    @required this.image,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
-        width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(width: 1, color: Colors.black),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Image.asset(image),
         ),
       ),
     );
